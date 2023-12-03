@@ -1,10 +1,6 @@
 pip
+streamlit
 numpy
 pandas
-streamlit
 pickle
 scikit-learn
-plotly
-joblib
-matplotlib
-seaborn
