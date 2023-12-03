@@ -1,6 +1,10 @@
-pip==22.2.2
+pip
 numpy
 pandas
 streamlit
 pickle
 scikit-learn
+plotly
+joblib
+matplotlib
+seaborn
