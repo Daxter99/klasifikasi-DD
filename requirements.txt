@@ -2,5 +2,5 @@ pip
 streamlit
 numpy
 pandas
-pickle
+pickle==3.12.0
 scikit-learn
