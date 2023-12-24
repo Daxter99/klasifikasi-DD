@@ -37,7 +37,7 @@ else:
         Uji_Tokniket = st.sidebar.selectbox('Uji Tokniket', ('YES', 'NO'))
         Kebocoran_plasma = st.sidebar.selectbox('Kebocoran Plasma', ('YES', 'NO'))
         Pendarahan_Spontan = st.sidebar.selectbox('Pendarahan Spontan', ('YES', 'NO'))
-        Trombositopenia = st.sidebar.slider('Trombositopenia', 50000, 150000)
+        Trombositopenia = st.sidebar.slider('Trombositopenia', 45000, 150000)
         Peningkatan_Hematokrit = st.sidebar.slider('Peningkatan Hematokrit', 0, 30)
         data = {
             'Umur' : Umur,
@@ -58,7 +58,7 @@ else:
         return fitur
     inputan = input_user()
 
-ddPrediction_raw = pd.read_csv('dataset.csv')
+ddPrediction_raw = pd.read_csv('dataset4.csv')
 ddPredictions = ddPrediction_raw.drop(columns=['Label'])
 df = pd.concat([inputan, ddPredictions], axis=0)
 
@@ -73,6 +73,9 @@ st.subheader('Input Parameters')
 
 if upload_file is not None:
     st.write("""
+    DBD4 = 4\n
+    DBD3 = 3\n
+    DBD2 = 2\n
     DBD1 = 1\n
     DD = 0
     """)
@@ -80,26 +83,35 @@ if upload_file is not None:
 else:
     st.write('Waiting for the CSV File to Upload. Currently using thr input sample')
     st.write("""
+    DBD4 = 4\n
+    DBD3 = 3\n
+    DBD2 = 2\n
     DBD1 = 1\n
     DD = 0
     """)
     st.write(df)
 
-load_model = pickle.load(open('model_dd.pkl', 'rb'))
+load_model = pickle.load(open('model_dd4.pkl', 'rb'))
 
 prediksi = load_model.predict(df)
 prediksi_proba = load_model.predict_proba(df)
 
 st.subheader('Label Class Description')
 st.write("""
-    DBD1 = 1\n
-    DD = 0
+    DD = Demam Dengue\n
+    DBD1 = Demam Berdarah Dengue 1\n
+    DBD2 = emam Berdarah Dengue 2\n
+    DBD3 = emam Berdarah Dengue 3\n
+    DBD4 = emam Berdarah Dengue 4
     """)
-status_dd = np.array([0, 1])
+status_dd = np.array([0, 1, 2, 3, 4])
 st.write(status_dd)
 
 st.subheader('Prediction Result (Demam Berdarah Prediction)')
 st.write("""
+    DBD4 = 4\n
+    DBD3 = 3\n
+    DBD2 = 2\n
     DBD1 = 1\n
     DD = 0
     """)
@@ -107,6 +119,9 @@ st.write(status_dd[prediksi])
 
 st.subheader('The Probability of thr Predicted Outcome (Demam Berdarah Prediction)')
 st.write("""
+    DBD4 = 4\n
+    DBD3 = 3\n
+    DBD2 = 2\n
     DBD1 = 1\n
     DD = 0
     """)
