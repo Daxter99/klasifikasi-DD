@@ -100,9 +100,9 @@ st.subheader('Label Class Description')
 st.write("""
     DD = Demam Dengue\n
     DBD1 = Demam Berdarah Dengue 1\n
-    DBD2 = emam Berdarah Dengue 2\n
-    DBD3 = emam Berdarah Dengue 3\n
-    DBD4 = emam Berdarah Dengue 4
+    DBD2 = Demam Berdarah Dengue 2\n
+    DBD3 = Demam Berdarah Dengue 3\n
+    DBD4 = Demam Berdarah Dengue 4
     """)
 status_dd = np.array([0, 1, 2, 3, 4])
 st.write(status_dd)
